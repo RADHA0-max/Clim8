@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Limelight&display=swap');
+        
+
+    
+
+
+        #calculator{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            word-wrap: normal;
+
+            
+        }
+        .head{
+            font-size: clamp( 16px,4vw,40px);
+            border: 2px solid black;
+            padding: 12px;
+            font-family:Montserrat;
+        
+        box-shadow: inset 4px 2px 24px #31e209;
+        position: sticky;
+        top:0;
+        z-index: 1000;
+        background-color: white;
+        
+
+
+
+        }
+        .line{ 
+            font-size: clamp( 16px,3vw,30px);
+            text-shadow: 3px 3px px #000000;
+            margin: 12px;
+            text-decoration:  underline;
+            font-weight: bold;
+}
+
+            
+            
+        .cal{
+            display: flex;
+            flex-direction: column;
+            margin: 12px;
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            font-size: clamp( 16px,3vw,30px);
+            font-weight: 500;
+        }
+        input,select{
+            padding: 8px;
+            border-radius: 6px;
+            border: 2px solid black;
+            box-shadow: inset 4px 2px 24px #31e209;
+            justify-items:right;
+        
+        }
+        button{
+            padding: 12px;
+            font-size: clamp( 16px,3vw,30px);
+            font-family: 'Baloo Bhaijaan 2', cursive;
+            background-color: #31e209;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #1c8005;
+        }
+        .hello{
+            background-image: url("https://static.vecteezy.com/system/resources/previews/026/388/200/non_2x/nature-green-landscape-sky-background-free-photo.jpg");
+            
+            
+            
+            
+            
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+            
+            
+            background-size: cover;
+            background-position: 50% 50%;
+            opacity: 1;
+            height: 100vh;
+        }
+        @media screen and (orientation: portrait) {
+            .head{
+                font-size: clamp( 16px,4vw,30px);
+            }
+            .line{
+                font-size: clamp( 16px,4vw,20px);
+            }
+            .cal{
+                font-size: clamp( 16px,4vw,20px);
+            }
+            input,select{
+                font-size: clamp( 16px,2vw,20px);
+            }
+            button{
+                font-size: clamp( 16px,3vw,20px);
+            }
+            .hello{
+                background-image: url(" https://img.freepik.com/premium-photo/green-leaves-blurred-background_662214-91443.jpg?w=2000"
+                
+                
+                
+                );
+                background-size: cover;
+                background-position: 50% 50%;
+            }} 
+            .result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #31e209;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+
+.result h2 {
+    font-size: 24px;
+    color: #1c8005;
+    margin-bottom: 10px;
+}
+
+.result p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.result .total-footprint {
+    font-weight: bold;
+    color: #e63946;
+}
+
+.result .world-average {
+    font-weight: bold;
+    color: #457b9d;
+}
+
+.result .breakdown {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.result .breakdown li {
+    margin: 5px 0;
+}
+
+.result .comparison {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1d3557;
+}
+
+.result .tips {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+.result .tips li {
+    margin: 5px 0;
+    color: #2a9d8f;
+}
+/* Container for the charts */
+.chart-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Space between the charts */
+}
+
+/* Styling for the canvas elements */
+canvas {
+    max-width: 500px; /* Limit the maximum width of the chart */
+    width: 100%; /* Make the chart responsive */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #31e209; /* Add a border around the chart */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    background-color: #ffffff; 
+    padding: 10px; 
+}
+
+/* Chart titles */
+.chart-container h3 {
+    font-size: 20px;
+    color: #1c8005;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </style>
+</head>
+<body class="hello">
+<div id="calculator">
+<h1 class="head">CARBON FOOTPRINT CALCULATOR</h1>
+<p class="line">Calculate your carbon footprint and see how you can reduce it.</p>
+
+    <div class="cal">
+    <label for="electricity">Enter your electricity usage(kWh/month):</label>
+    <input type="number" id="electricity" name="electricity" required>
+    </div>
+    <div class="cal">
+        <label for="water">Enter your water usage(liters/month):</label>
+        <input type="number" id="water" name="water" required>
+    </div>
+    <div class="cal">
+        <label for="waste">Enter your waste production(kg/month):</label>
+        <input type="number" id="waste" name="waste" required>
+    </div>
+    <div class="cal">
+        <label for="transport">Enter your transport distance (km/month):</label>
+        <input type="number" id="transport" name="transport" required>
+
+    </div>
+    <div class="cal">
+        <label for="diet">Your diet type:</label>
+        <select name="diet" id="diet" required>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="non-vegetarian">Non Vegetarian </option>
+        </select>
+
+    </div>
+    <button onclick="calculateFootprint()">Calculate</button>
+    <div id="result" class="result"></div>
+    <div class="chart-container">
+        <canvas id="breakdownChart"></canvas>
+        <canvas id="comparisonChart"></canvas>
+    </div>
+
+
+
+</div>
+<script src="cal4.js"></script>
+
+
+
+        
+    
+
+ 
+    
+</body>
+</html>
